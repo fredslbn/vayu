@@ -48,7 +48,7 @@ FINAL_ZIP_ALIAS=Karenulgarde-${TANGGAL}.zip
 ##----------------------------------------------------------##
 # Specify compiler.
 
-COMPILER=neutron
+COMPILER=nexus14
 
 ##----------------------------------------------------------##
 # Specify Linker
