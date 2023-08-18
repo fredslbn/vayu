@@ -48,7 +48,7 @@ FINAL_ZIP_ALIAS=Karenulgarde-${TANGGAL}.zip
 ##----------------------------------------------------------##
 # Specify compiler.
 
-COMPILER=clang17
+COMPILER=neutron
 
 ##----------------------------------------------------------##
 # Specify Linker
@@ -260,18 +260,17 @@ START=$(date +"%s")
 	   then
 	       make -kj$(nproc --all) O=out \
 	       ARCH=arm64 \
-	       CC=$KERNEL_CLANG \
-           CROSS_COMPILE=$KERNEL_CCOMPILE64 \
-           CROSS_COMPILE_ARM32=$KERNEL_CCOMPILE32 \
+	       CC=clang \
+           CROSS_COMPILE=aarch64-linux-gnu- \
+           CROSS_COMPILE_ARM32=arm-linux-gnueabi \
            LD=${LINKER} \
            #LLVM=1 \
            #LLVM_IAS=1 \
-           AR=llvm-ar \
-           NM=llvm-nm \
-           OBJCOPY=llvm-objcopy \
-           OBJDUMP=llvm-objdump \
-           STRIP=llvm-strip \
-	       CLANG_TRIPLE=aarch64-linux-gnu- \
+           #AR=llvm-ar \
+           #NM=llvm-nm \
+           #OBJCOPY=llvm-objcopy \
+           #OBJDUMP=llvm-objdump \
+           #STRIP=llvm-strip \
 	       V=$VERBOSE 2>&1 | tee error.log
 	       
 	elif [ -d ${KERNEL_DIR}/cosmic ];
