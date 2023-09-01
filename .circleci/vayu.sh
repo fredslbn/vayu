@@ -343,14 +343,14 @@ START=$(date +"%s")
            CROSS_COMPILE=$KERNEL_CCOMPILE64 \
            CROSS_COMPILE_ARM32=$KERNEL_CCOMPILE32 \
            LD=${LINKER} \
-           #LLVM=1 \
+           LLVM=1 \
            #LLVM_IAS=1 \
-           AR=llvm-ar \
-	       NM=llvm-nm \
-	       OBJCOPY=llvm-objcopy \
-	       OBJDUMP=llvm-objdump \
-	       STRIP=llvm-strip \
-	       OBJSIZE=llvm-size \
+           #AR=llvm-ar \
+	       #NM=llvm-nm \
+	       #OBJCOPY=llvm-objcopy \
+	       #OBJDUMP=llvm-objdump \
+	       #STRIP=llvm-strip \
+	       #OBJSIZE=llvm-size \
 	       V=$VERBOSE 2>&1 | tee error.log
 	       
 	elif [ -d ${KERNEL_DIR}/cosmic ];
